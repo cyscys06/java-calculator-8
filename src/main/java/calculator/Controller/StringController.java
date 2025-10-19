@@ -42,4 +42,18 @@ public class StringController {
         }
         return false;
     }
+
+    public static Integer[] ChangeToNumber(String[] splitstr) {
+        Integer[] numberarr = new Integer[splitstr.length];
+
+        for (int i = 0; i < splitstr.length; i++) {
+            if (splitstr[i].isEmpty()) {
+                numberarr[i] = 0;
+                continue;
+            }
+            int realNumber = Integer.parseInt(splitstr[i]);
+            numberarr[i] = realNumber;
+        }
+        return numberarr;
+    }
 }
