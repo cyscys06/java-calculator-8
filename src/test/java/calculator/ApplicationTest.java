@@ -144,6 +144,13 @@ class ApplicationTest extends NsTest {
         assertThat(isnegativenumber).isEqualTo(true);
     }
 
+    @Test
+    void 숫자_총합_테스트() {
+        Integer[] numberarray = new Integer[]{1, 2, 3};
+        Integer total = Total(numberarray);
+        assertThat(total).isEqualTo(6);
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
