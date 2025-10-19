@@ -23,8 +23,8 @@ public class StringController {
         return str.equals(",") || str.equals(":");
     }
 
-    public static boolean StringCheck_isSeparatorLength1(String str) {
-        return str.length() == 1;
+    public static boolean StringCheck_SeparatorLength(String str) {
+        return str.length() <= 1;
     }
 
     public static String[] SplitString(String str, String sep) {
@@ -85,7 +85,7 @@ public class StringController {
             model.setSeparator(AddCustomSeparator(model.getString()));
         }
 
-        if (StringCheck_isSeparatorLength1(model.getString())) {
+        if (StringCheck_SeparatorLength(model.getString())) {
             throw new IllegalArgumentException("길이가 1인 문자만 커스텀구분자로 생성할 수 있습니다.");
         }
 
