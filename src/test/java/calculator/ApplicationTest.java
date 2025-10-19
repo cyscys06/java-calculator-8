@@ -73,6 +73,46 @@ class ApplicationTest extends NsTest {
         assertThat(isSeparatorLength1).isEqualTo(false);
     }
 
+    @Test
+    void 문자열_분리_테스트1() {
+        String[] splitstring = SplitString("1,2,3", "");
+        assertThat(splitstring[0]).isEqualTo("1");
+        assertThat(splitstring[1]).isEqualTo("2");
+        assertThat(splitstring[2]).isEqualTo("3");
+    }
+
+    @Test
+    void 문자열_분리_테스트2() {
+        String[] splitstring = SplitString("1,2:3", "");
+        assertThat(splitstring[0]).isEqualTo("1");
+        assertThat(splitstring[1]).isEqualTo("2");
+        assertThat(splitstring[2]).isEqualTo("3");
+    }
+
+    @Test
+    void 문자열_분리_테스트3() {
+        String[] splitstring = SplitString("1:2:3", "");
+        assertThat(splitstring[0]).isEqualTo("1");
+        assertThat(splitstring[1]).isEqualTo("2");
+        assertThat(splitstring[2]).isEqualTo("3");
+    }
+
+    @Test
+    void 문자열_분리_테스트4() {
+        String[] splitstring = SplitString("1k;2:3", "1");
+        assertThat(splitstring[0]).isEqualTo("");
+        assertThat(splitstring[1]).isEqualTo("k;2");
+        assertThat(splitstring[2]).isEqualTo("3");
+    }
+
+    @Test
+    void 문자열_분리_테스트5() {
+        String[] splitstring = SplitString("-1;2:3", ";");
+        assertThat(splitstring[0]).isEqualTo("-1");
+        assertThat(splitstring[1]).isEqualTo("2");
+        assertThat(splitstring[2]).isEqualTo("3");
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
