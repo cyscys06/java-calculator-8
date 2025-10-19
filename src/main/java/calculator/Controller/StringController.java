@@ -1,6 +1,8 @@
 package calculator.Controller;
 
 import camp.nextstep.edu.missionutils.Console;
+import calculator.Model.StringModel;
+import calculator.View.StringView;
 
 public class StringController {
     public static String Input() {
@@ -72,5 +74,36 @@ public class StringController {
             total += n;
         }
         return total;
+    }
+
+    public void StartProcess() {
+        StringModel model = new StringModel();
+        StringView view = new StringView();
+        model.setString(Input());
+
+        if (StringCheck_ContainCustomSeparator(model.getString())) {
+            model.setSeparator(AddCustomSeparator(model.getString()));
+        }
+
+        if (StringCheck_isSeparatorLength1(model.getString())) {
+            throw new IllegalArgumentException("길이가 1인 문자만 커스텀구분자로 생성할 수 있습니다.");
+        }
+
+        if (StringCheck_isDefaultSeparator(model.getSeparator())) {
+            throw new IllegalArgumentException("디폴트구분자를 커스텀구분자로 생성할 수 없습니다.");
+        }
+        model.setSplitstring(SplitString(model.getString(), model.getSeparator()));
+
+        if (StringCheck_isNotNumber(model.getSplitstring())) {
+            throw new IllegalArgumentException("구분자, 양의 정수 형태가 아닌 문자는 입력할 수 없습니다.");
+        }
+        model.setNumberarray(ChangeToNumber(model.getSplitstring()));
+
+        if (IntegerCheck_isNegativeNumber(model.getNumberarray())) {
+            throw new IllegalArgumentException("음수는 입력할 수 없습니다.");
+        }
+        model.setTotal(Total(model.getNumberarray()));
+
+        view.Output(model.getTotal());
     }
 }
