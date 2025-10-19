@@ -137,6 +137,13 @@ class ApplicationTest extends NsTest {
         assertThat(numberarray[3]).isEqualTo(3);
     }
 
+    @Test
+    void 음수인지_검사_테스트() {
+        Integer[] numberarray = new Integer[]{-1, 2, 3};
+        boolean isnegativenumber = IntegerCheck_isNegativeNumber(numberarray);
+        assertThat(isnegativenumber).isEqualTo(true);
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
