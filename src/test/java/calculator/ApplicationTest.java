@@ -127,6 +127,16 @@ class ApplicationTest extends NsTest {
         assertThat(isnotnumber).isEqualTo(false);
     }
 
+    @Test
+    void 문자열_정수_변환_테스트() {
+        String[] splitstring = new String[]{"", "1", "2", "3"};
+        Integer[] numberarray = ChangeToNumber(splitstring);
+        assertThat(numberarray[0]).isEqualTo(0);
+        assertThat(numberarray[1]).isEqualTo(1);
+        assertThat(numberarray[2]).isEqualTo(2);
+        assertThat(numberarray[3]).isEqualTo(3);
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
