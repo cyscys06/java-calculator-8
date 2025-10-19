@@ -16,4 +16,9 @@ public class StringController {
         int index = str.indexOf("n");
         return str.substring(2, index - 1);
     }
+
+    public static boolean StringCheck_isDefaultSeparator(String str) {
+        return str.equals(",") || str.equals(":");
+    }
+
 }
