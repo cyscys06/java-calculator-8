@@ -113,6 +113,20 @@ class ApplicationTest extends NsTest {
         assertThat(splitstring[2]).isEqualTo("3");
     }
 
+    @Test
+    void 숫자_아닌지_검사_테스트1() {
+        String[] splitstring = new String[]{"k", "1", "2", "3"};
+        boolean isnotnumber = StringCheck_isNotNumber(splitstring);
+        assertThat(isnotnumber).isEqualTo(true);
+    }
+
+    @Test
+    void 숫자_아닌지_검사_테스트2() {
+        String[] splitstring = new String[]{"0", "1", "2", "3"};
+        boolean isnotnumber = StringCheck_isNotNumber(splitstring);
+        assertThat(isnotnumber).isEqualTo(false);
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
