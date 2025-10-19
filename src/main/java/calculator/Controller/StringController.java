@@ -11,4 +11,9 @@ public class StringController {
     public static boolean StringCheck_ContainCustomSeparator(String str) {
         return str.startsWith("//") &&  str.contains("\\n");
     }
+
+    public static String AddCustomSeparator(String str) {
+        int index = str.indexOf("n");
+        return str.substring(2, index - 1);
+    }
 }
