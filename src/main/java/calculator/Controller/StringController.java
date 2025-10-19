@@ -86,7 +86,7 @@ public class StringController {
         }
 
         if (StringCheck_SeparatorLength(model.getString())) {
-            throw new IllegalArgumentException("길이가 1인 문자만 커스텀구분자로 생성할 수 있습니다.");
+            throw new IllegalArgumentException("길이가 1 이하인 문자만 커스텀구분자로 생성할 수 있습니다.");
         }
 
         if (StringCheck_isDefaultSeparator(model.getSeparator())) {
