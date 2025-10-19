@@ -65,4 +65,12 @@ public class StringController {
         }
         return false;
     }
+
+    public static Integer Total(Integer[] numberarray) {
+        Integer total = 0;
+        for (Integer n : numberarray) {
+            total += n;
+        }
+        return total;
+    }
 }
