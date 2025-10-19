@@ -24,7 +24,7 @@ public class StringController {
     }
 
     public static boolean StringCheck_isSeparatorLength1(String str) {
-        return str.length() != 1;
+        return str.length() == 1;
     }
 
     public static String[] SplitString(String str, String sep) {
