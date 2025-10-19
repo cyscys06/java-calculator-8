@@ -43,6 +43,24 @@ class ApplicationTest extends NsTest {
         assertThat(string).isEqualTo("1");
     }
 
+    @Test
+    void 커스텀구분자가_디폴트구분자인지_검사_테스트1() {
+        boolean isDefaultSeparator = StringCheck_isDefaultSeparator(",");
+        assertThat(isDefaultSeparator).isEqualTo(true);
+    }
+
+    @Test
+    void 커스텀구분자가_디폴트구분자인지_검사_테스트2() {
+        boolean isDefaultSeparator = StringCheck_isDefaultSeparator(":");
+        assertThat(isDefaultSeparator).isEqualTo(true);
+    }
+
+    @Test
+    void 커스텀구분자가_디폴트구분자인지_검사_테스트3() {
+        boolean isDefaultSeparator = StringCheck_isDefaultSeparator(";");
+        assertThat(isDefaultSeparator).isEqualTo(false);
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
