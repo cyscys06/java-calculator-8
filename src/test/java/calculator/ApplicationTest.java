@@ -61,6 +61,18 @@ class ApplicationTest extends NsTest {
         assertThat(isDefaultSeparator).isEqualTo(false);
     }
 
+    @Test
+    void 커스텀구분자_길이_1인지_검사_테스트1() {
+        boolean isSeparatorLength1 = StringCheck_isSeparatorLength1(";");
+        assertThat(isSeparatorLength1).isEqualTo(true);
+    }
+
+    @Test
+    void 커스텀구분자_길이_1인지_검사_테스트2() {
+        boolean isSeparatorLength1 = StringCheck_isSeparatorLength1(";'");
+        assertThat(isSeparatorLength1).isEqualTo(false);
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
