@@ -56,4 +56,13 @@ public class StringController {
         }
         return numberarr;
     }
+
+    public static boolean IntegerCheck_isNegativeNumber(Integer[] numberarray) {
+        for (Integer n : numberarray) {
+            if (n < 0) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
