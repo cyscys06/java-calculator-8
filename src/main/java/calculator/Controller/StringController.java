@@ -30,4 +30,16 @@ public class StringController {
         str = str.substring(index + 1);
         return str.split("[," + sep + ":]");
     }
+
+    public static boolean StringCheck_isNotNumber(String[] splitstr) {
+        for (String s : splitstr) {
+            try {
+                Integer.parseInt(s);
+            }
+            catch (NumberFormatException e) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
