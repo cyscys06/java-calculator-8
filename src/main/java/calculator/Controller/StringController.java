@@ -21,4 +21,8 @@ public class StringController {
         return str.equals(",") || str.equals(":");
     }
 
+    public static boolean StringCheck_isSeparatorLength1(String str) {
+        return str.length() != 1;
+    }
+
 }
