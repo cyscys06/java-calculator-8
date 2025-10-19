@@ -3,7 +3,7 @@ package calculator;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
 
-import static calculator.Controller.StringController.StringCheck_ContainCustomSeparator;
+import static calculator.Controller.StringController.*;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -35,6 +35,12 @@ class ApplicationTest extends NsTest {
     void 커스텀구분자_생성_요청_테스트2() {
         boolean result = StringCheck_ContainCustomSeparator("//1\\n");
         assertThat(result).isEqualTo(true);
+    }
+
+    @Test
+    void 커스텀구분자_생성_테스트() {
+        String string = AddCustomSeparator("//1\\n");
+        assertThat(string).isEqualTo("1");
     }
 
     @Override
